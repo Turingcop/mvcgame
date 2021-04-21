@@ -1,0 +1,1 @@
+Detta repo är en del av kursen MVC, tidigare oophp, på Blekinge Tekniska Högskola, 2021.
