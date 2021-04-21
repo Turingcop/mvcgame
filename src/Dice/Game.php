@@ -17,18 +17,14 @@ use function Mos\Functions\{
  */
 class Game
 {
-    private $data;
     private $playerhand;
     private $computerhand;
-
-    public function resetScore()
-    {
-    }
 
     public function setUp()
     {
         $data = [
-            "header" => "Dice",
+            "header" => "Game21",
+            "title" => "Game21",
             "message" => "Välj att spela med en eller två tärningar.",
             "action" => url("/dice/start"),
             "reset" => url("/dice/reset"),
@@ -66,7 +62,8 @@ class Game
     public function playGame(): void
     {
         $data = [
-         "header" => "Dice",
+         "header" => "Game21",
+         "title" => "Game21",
          "message" => "Tryck på knappen för att göra ditt första kast.",
          "dices" => $_SESSION["dices"] ?? null,
         ];
@@ -74,7 +71,7 @@ class Game
         $this->playerhand = new DiceHand($data["dices"]);
         $this->computerhand = new DiceHand($data["dices"]);
         $data["throw"] = url("/dice/player");
-        $data["playform"] = "<form method='post' action={$data['throw']}><input type='submit' value='kasta'></form>";
+        $data["playform"] = "<form method='post' action={$data['throw']}><input type='submit' value='Kasta'></form>";
 
         $body = renderView("layout/dice.php", $data);
         sendResponse($body);
@@ -83,7 +80,8 @@ class Game
     public function roll()
     {
         $data = [
-            "header" => "Dice",
+            "header" => "Game21",
+            "title" => "Game21",
             "throwlabel" => "Dina kast:",
            ];
 
@@ -92,8 +90,8 @@ class Game
         $data["stop"] = url("/dice/computer");
         $data["start"] = url("/dice");
 
-        $data["playform"] = "<form method='post' action={$data['throw']}><input type='submit' value='kasta'></form>";
-        $data["nextform"] = "<form method='post' action={$data['stop']}><input type='submit' value='stanna'></form>";
+        $data["playform"] = "<form method='post' action={$data['throw']}><input type='submit' value='Kasta'></form>";
+        $data["nextform"] = "<form method='post' action={$data['stop']}><input type='submit' value='Stanna'></form>";
 
         $this->playerhand->roll();
 
@@ -104,6 +102,7 @@ class Game
             $data["nextform"] = null;
         } else if ($this->playerhand->getSum() == 21) {
             $data["result"] = "Grattis!";
+            $data["nextform"] = "<form method='post' action={$data['stop']}><input type='submit' value='Vidare'></form>";
             $data["playform"] = null;
         }
         $body = renderView("layout/dice.php", $data);
@@ -113,7 +112,8 @@ class Game
     public function computerroll()
     {
         $data = [
-            "header" => "Dice",
+            "header" => "Game21",
+            "title" => "Game21",
             "throwlabel" => "Datorns kast:",
             "start" => url("/dice")
         ];

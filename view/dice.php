@@ -15,15 +15,20 @@ $hand = $hand ?? null;
 $playform = $playform ?? null;
 $nextform = $nextform ?? null;
 $result = $result ?? null;
-// $restartform = $restartform ?? null;
 $resetform = $resetform ?? null;
 
-?><h1><?= $header ?></h1>
+?>
+<div class="game21">
+<h1><?= $header ?></h1>
 
 <p><?= $message ?></p>
 
+<p>
 <?= $playform ?>
+</p>
+<p>
 <?= $nextform ?>
+</p>
 
 <?php if ($hand !== null) : ?>
     <p>
@@ -44,4 +49,7 @@ Spelare:
 <?= $_SESSION["playerscore"] ?><br>
 Dator:
 <?= $_SESSION["computerscore"] ?><br>
+<p>
 <?= $resetform ?>
+</p>
+</div>
