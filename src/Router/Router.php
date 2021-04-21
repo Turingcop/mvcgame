@@ -70,7 +70,7 @@ class Router
             $_SESSION["game"] = new \siev20\Dice\Game();
             $_SESSION["game"]->setUp();
             return;
-        } else if ($method ==="POST" && $path === "/dice/start") {
+        } else if ($method === "POST" && $path === "/dice/start") {
             $_SESSION["dices"] = $_POST["dices"];
             $_SESSION["game"]->playGame();
             return;

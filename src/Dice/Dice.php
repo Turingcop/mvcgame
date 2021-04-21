@@ -18,10 +18,10 @@ namespace siev20\Dice;
  */
 class Dice
 {
-   private ?int $roll = null;
-   private int $faces;
-   
-   public function __construct(int $faces = 6)
+    private ?int $roll = null;
+    private int $faces;
+
+    public function __construct(int $faces = 6)
     {
         $this->faces = $faces;
     }

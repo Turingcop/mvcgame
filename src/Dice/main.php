@@ -24,4 +24,3 @@ $graphdie = new DiceGraphic();
 $diceHand = new DiceHand(10);
 $diceHand->roll();
 echo $diceHand->getLastRoll();
-

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace siev20\Dice;
+
 use siev20\Dice\Dice;
 
 // use function Mos\Functions\{
@@ -29,14 +30,14 @@ class DiceGraphic extends Dice
         6 => "⚅"
     ];
 
-   public function __construct()
+    public function __construct()
     {
         parent::__construct(self::FACES);
     }
 
     // private ?int $roll = null;
 
-    public function graphic(): string 
+    public function graphic(): string
     {
         return $this->graphic[$this->getLastRoll()];
     }

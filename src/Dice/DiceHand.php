@@ -56,14 +56,16 @@ class DiceHand
         return implode(", ", $res) . " = " . $sum;
     }
 
-    public function getThrows() {
+    public function getThrows()
+    {
         $len = count($this->throws);
         for ($i = 0; $i < $len; $i++) {
             echo $this->throws[$i] . "<br>";
         }
     }
 
-    public function getSum(): int {
+    public function getSum(): int
+    {
         return $this->sum;
     }
 }

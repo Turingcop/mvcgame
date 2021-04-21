@@ -36,7 +36,7 @@ $resetform = $resetform ?? null;
         Summa
         <?= $hand->getSum(); ?>
     </p>
-    <?php endif; ?>
+<?php endif; ?>
 <h2><?= $result ?></h2>
 Ställning
 <br>
@@ -44,5 +44,4 @@ Spelare:
 <?= $_SESSION["playerscore"] ?><br>
 Dator:
 <?= $_SESSION["computerscore"] ?><br>
-<!-- <?= $restartform ?> -->
 <?= $resetform ?>
