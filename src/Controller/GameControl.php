@@ -18,7 +18,7 @@ use siev20\Dice\Game;
 /**
  * Controller for the dicegame route.
  */
-class GameControl Extends ControllerBase
+class GameControl extends ControllerBase
 {
     public function start()
     {
@@ -45,7 +45,8 @@ class GameControl Extends ControllerBase
         return $this->response($body);
     }
 
-    public function reset() {
+    public function reset()
+    {
         destroySession();
         return $this->redirect(url("/dice"));
     }

@@ -1,0 +1,28 @@
+
+FILE: /home/turingcop/dbwebb-kurser/mvc/me/game/src/Controller/GameControl.php
+------------------------------------------------------------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+------------------------------------------------------------------------------------------------------------------------------
+ 15 | ERROR | Similar statements must be grouped together inside header blocks; the first "use" statement was found on line 7
+------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: /home/turingcop/dbwebb-kurser/mvc/me/game/src/Router/Router1.php
+---------------------------------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+---------------------------------------------------------------------------------------------------
+ 16 | ERROR | The class-based use imports must follow the namespace declaration in the file header
+---------------------------------------------------------------------------------------------------
+
+
+FILE: /home/turingcop/dbwebb-kurser/mvc/me/game/config/router.php
+----------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+----------------------------------------------------------------------
+ 44 | ERROR | [x] Expected 1 newline at end of file; 0 found
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+Time: 277ms; Memory: 6MB
+

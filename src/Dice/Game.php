@@ -52,7 +52,7 @@ class Game
             <input type='submit' value='Starta spelet'>
         </p>
         </form>";
-    
+
         $body = renderView("layout/dice.php", $data);
         return $body;
     }
