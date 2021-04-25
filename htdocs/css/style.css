@@ -24,3 +24,8 @@ footer {
     min-width: 120px;
     padding: 0.5rem;
 }
+
+.playbtn form {
+    display: inline;
+    margin-right: 1rem;
+}

@@ -41,9 +41,9 @@ class DiceHand
         }
         if ($len > 1) {
             $this->throws[] = implode(", ", $res) . " = " . $sum;
-        } else {
-            $this->throws[] = implode($res);
+            return implode(", ", $res) . " = " . $sum;
         }
+        $this->throws[] = implode($res);
         return implode(", ", $res) . " = " . $sum;
     }
 

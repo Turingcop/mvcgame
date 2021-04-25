@@ -36,8 +36,6 @@ class Game
         }
 
         $data["resetform"] = "<form method='post' action={$data['reset']}><input type='submit' value='Nollställ'></form>";
-        $data["playurl"] = url("/dice/player");
-        $data["playlabel"] = "Starta spelet";
 
         $data["playform"] = "<form method='post' action={$data['action']}>
         <p>
@@ -48,22 +46,24 @@ class Game
             <input type='radio' name='dices' value=2>
             <label for=2>2</label>
         </p>
+    
         <p>
             <input type='submit' value='Starta spelet'>
         </p>
-        </form>";
     
+        </form>";
+
         $body = renderView("layout/dice.php", $data);
-        return $body;
+        sendResponse($body);
     }
 
-    public function playGame()
+    public function playGame(): void
     {
         $data = [
          "header" => "Game21",
          "title" => "Game21",
          "message" => "Tryck på knappen för att göra ditt första kast.",
-         "dices" => $_POST["dices"] ?? null,
+         "dices" => $_SESSION["dices"] ?? null,
         ];
 
         $this->playerhand = new DiceHand($data["dices"]);
@@ -72,7 +72,7 @@ class Game
         $data["playform"] = "<form method='post' action={$data['throw']}><input type='submit' value='Kasta'></form>";
 
         $body = renderView("layout/dice.php", $data);
-        return $body;
+        sendResponse($body);
     }
 
     public function roll()
@@ -81,7 +81,6 @@ class Game
             "header" => "Game21",
             "title" => "Game21",
             "throwlabel" => "Dina kast:",
-            "message" => "Kasta igen eller stanna."
            ];
 
         $data["hand"] = $this->playerhand;
@@ -105,7 +104,7 @@ class Game
             $data["playform"] = null;
         }
         $body = renderView("layout/dice.php", $data);
-        return $body;
+        sendResponse($body);
     }
 
     public function computerroll()
@@ -114,10 +113,10 @@ class Game
             "header" => "Game21",
             "title" => "Game21",
             "throwlabel" => "Datorns kast:",
-            "start" => url("/dice"),
-            "hand" => $this->computerhand
+            "start" => url("/dice")
         ];
-        $data["playform"] = "<a href={$data['start']}>Nytt spel</a>";
+
+        $data["hand"] = $this->computerhand;
 
         while ($this->computerhand->getSum() < 21) {
             $this->computerhand->roll();
@@ -126,10 +125,14 @@ class Game
         if ($this->computerhand->getSum() == 21) {
             $data["result"] = "Datorn vinner!";
             $_SESSION["computerscore"]++;
-            return renderView("layout/dice.php", $data);
+            $data["playform"] = "<a href={$data['start']}>Nytt spel</a>";
+            return;
+        } else {
+            $data["result"] = "Du vinner!";
+            $_SESSION["playerscore"]++;
+            $data["playform"] = "<a href={$data['start']}>Nytt spel</a>";
         }
-        $data["result"] = "Du vinner!";
-        $_SESSION["playerscore"]++;
-        return renderView("layout/dice.php", $data);
+        $body = renderView("layout/dice.php", $data);
+        sendResponse($body);
     }
 }

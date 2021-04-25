@@ -13,6 +13,8 @@ use function Mos\Functions\{
     url
 };
 
+use siev20\Dice\Game;
+
 /**
  * Class Router.
  */
@@ -67,7 +69,7 @@ class Router
             sendResponse($body);
             return;
         } else if ($method === "GET" && $path === "/dice") {
-            $_SESSION["game"] = new \siev20\Dice\Game();
+            $_SESSION["game"] = new Game();
             $_SESSION["game"]->setUp();
             return;
         } else if ($method === "POST" && $path === "/dice/start") {

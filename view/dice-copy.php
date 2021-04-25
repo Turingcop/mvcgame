@@ -23,14 +23,14 @@ $resetform = $resetform ?? null;
 
 <p><?= $message ?></p>
 
-<div class="playbtn">
-<?= $playform ?><?= $nextform ?>
-</div>
-<!-- <p>
+<p>
+<?= $playform ?>
+</p>
+<p>
+<?= $nextform ?>
+</p>
 
-</p> -->
-
-<?php if ($hand) : ?>
+<?php if ($hand !== null) : ?>
     <p>
         <?= $throwlabel ?>
         </p>
@@ -42,7 +42,6 @@ $resetform = $resetform ?? null;
         <?= $hand->getSum(); ?>
     </p>
 <?php endif; ?>
-
 <h2><?= $result ?></h2>
 Ställning
 <br>
@@ -54,12 +53,11 @@ Dator:
 <?= $resetform ?>
 </p>
 </div>
-
-<!-- <?= var_dump($hand) ?> -->
+<?= var_dump($hand) ?>
 <br>
 <!-- <?= var_dump($data["dices"]) ?> -->
 <br>
-<!-- <?= var_dump($_POST) ?> -->
+<?= var_dump($_POST) ?>
 <br>
-<?= var_dump($_SESSION["game"]) ?>
+<!-- <?= var_dump($_SESSION["game"]) ?> -->
 <!-- <?= var_dump($_SESSION["game"]->playerhand) ?> -->
