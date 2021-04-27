@@ -29,3 +29,26 @@ footer {
     display: inline;
     margin-right: 1rem;
 }
+
+/* .dice {
+    font-size: 80px;
+} */
+
+.dicecheck label {
+    font-size: 80px;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+input[type="checkbox"]:checked + label {
+    border-bottom: 2px dashed teal;
+    color: teal;
+}
+
+.dicecheck input[type="checkbox"] {
+    display: none;
+}
+/* 
+label {
+    color: blue;
+} */

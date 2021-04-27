@@ -42,3 +42,8 @@ $router->addGroup("/dice", function (RouteCollector $router) {
     $router->addRoute("POST", "/computer", ["\siev20\Controller\GameControl", "computerRoll"]);
     $router->addRoute("POST", "/reset", ["\siev20\Controller\GameControl", "reset"]);
 });
+
+$router->addGroup("/yatzy", function (RouteCollector $router) {
+    $router->addRoute("GET", "", ["\siev20\Controller\YatzyController", "start"]);
+    $router->addRoute("POST", "", ["\siev20\Controller\YatzyController", "play"]);
+});

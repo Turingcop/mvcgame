@@ -6,9 +6,6 @@
 
 declare(strict_types=1);
 
-use siev20\Dice\Dice;
-use siev20\Dice\DiceHand;
-
 $header = $header ?? null;
 $message = $message ?? null;
 $hand = $hand ?? null;
@@ -26,18 +23,15 @@ $resetform = $resetform ?? null;
 <div class="playbtn">
 <?= $playform ?><?= $nextform ?>
 </div>
-<!-- <p>
-
-</p> -->
 
 <?php if ($hand) : ?>
     <p>
         <?= $throwlabel ?>
-        </p>
-        <p>
+    </p>
+    <p>
         <?= $hand->getThrows(); ?>
-        </p>
-        <p>
+    </p>
+    <p>
         Summa
         <?= $hand->getSum(); ?>
     </p>
@@ -47,19 +41,12 @@ $resetform = $resetform ?? null;
 Ställning
 <br>
 Spelare: 
-<?= $_SESSION["playerscore"] ?><br>
+<?= $_SESSION["playerscore"] ?>
+<br>
 Dator:
-<?= $_SESSION["computerscore"] ?><br>
+<?= $_SESSION["computerscore"] ?>
+<br>
 <p>
 <?= $resetform ?>
 </p>
 </div>
-
-<!-- <?= var_dump($hand) ?> -->
-<br>
-<!-- <?= var_dump($data["dices"]) ?> -->
-<br>
-<!-- <?= var_dump($_POST) ?> -->
-<br>
-<?= var_dump($_SESSION["game"]) ?>
-<!-- <?= var_dump($_SESSION["game"]->playerhand) ?> -->
