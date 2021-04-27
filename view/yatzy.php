@@ -6,21 +6,12 @@
 
 declare(strict_types=1);
 
-// use siev20\Dice\Dice;
-// use siev20\Dice\DiceHand;
-
-// $header = "Yatzy";
-// $title = "Yatzy";
 $message = $message ?? null;
-// $hand = $hand ?? null;
-// $playerroll = $playerroll ?? null;
-// $playerroll1 = $playerroll1 ?? null;
 $checkbox = $checkbox ?? null;
 $action = $action ?? null;
 $playlabel = $playlabel ?? null;
 $present = $present ?? null;
 $score = $score ?? null;
-// $method = $method ?? "GET";
 
 ?>
 <div class="yatzy">

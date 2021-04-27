@@ -32,18 +32,6 @@ class YatzyController extends ControllerBase
         return $this->response($body);
     }
 
-    // public function playerRoll()
-    // {
-    //     $body = $_SESSION["game"]->roll();
-    //     return $this->response($body);
-    // }
-
-    // public function computerRoll()
-    // {
-    //     $body = $_SESSION["game"]->computerroll();
-    //     return $this->response($body);
-    // }
-
     public function reset()
     {
         destroySession();
