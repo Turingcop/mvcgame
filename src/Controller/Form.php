@@ -34,8 +34,6 @@ class Form
             ->withBody($psr17Factory->createStream($body));
     }
 
-
-
     public function process(): ResponseInterface
     {
         $_SESSION["output"] = $_POST["content"] ?? null;

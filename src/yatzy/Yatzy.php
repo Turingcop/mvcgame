@@ -74,7 +74,7 @@ class Yatzy
         $this->rolls++;
         $this->playerhand->roll();
 
-        if ($this-> rolls == 3 && $this->round < 6) {
+        if ($this-> rolls == 3 && $this->round <= 6) {
             foreach ($this->playerhand->getLastRoll() as $die) {
                 if ($die == $this->round) {
                     $this->scoreboard[$this->round]++;
@@ -83,7 +83,9 @@ class Yatzy
             $this->rolls = 0;
             $this->disable = "disabled";
             $this->round++;
-        } elseif ($this->round == 6) {
+        } 
+        
+        if ($this->round > 6) {
             $this->disable = "disabled";
             $data["playlabel"] = "Börja om";
             $data["action"] = url("/yatzy/restart");

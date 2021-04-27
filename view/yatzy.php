@@ -27,7 +27,7 @@ $score = $score ?? null;
 </form>
 </div>
 
-<table style="width:100%">
+<table>
   <tr>
     <th colspan="2">Poäng</th>
   </tr>

@@ -15,7 +15,7 @@ use function Mos\Functions\{renderView,
 };
 
 /**
- * Controller for the dicegame route.
+ * Controller for the yatzy route.
  */
 class YatzyController extends ControllerBase
 {

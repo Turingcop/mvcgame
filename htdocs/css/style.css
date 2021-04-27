@@ -29,6 +29,7 @@ footer {
 .yatzy input[type="submit"] {
     min-width: 120px;
     padding: 0.5rem;
+    margin-bottom: 1rem;
     /* margin-left: 1rem; */
 }
 
@@ -50,4 +51,26 @@ input[type="checkbox"]:checked + label {
 
 .dicecheck input[type="checkbox"] {
     display: none;
+}
+
+td {
+    padding-top: 0.5rem;
+    border-bottom: 1px dashed gray;
+}
+
+td:nth-child(1) {
+    width: 70%;
+}
+
+td:nth-child(2) {
+    width: 30%;
+    text-align: right;
+}
+
+table {
+    width: 50%;
+}
+
+table th {
+    text-align: left;
 }

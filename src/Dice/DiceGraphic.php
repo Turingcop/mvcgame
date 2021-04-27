@@ -6,15 +6,6 @@ namespace siev20\Dice;
 
 use siev20\Dice\Dice;
 
-// use function Mos\Functions\{
-//     destroySession,
-//     redirectTo,
-//     renderView,
-//     renderTwigView,
-//     sendResponse,
-//     url
-// };
-
 /**
  * Class Dice.
  */
