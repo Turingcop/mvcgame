@@ -84,7 +84,7 @@ class Yatzy
             $this->disable = "disabled";
             $this->round++;
         }
-        
+
         if ($this->round > 6) {
             $this->disable = "disabled";
             $data["playlabel"] = "Börja om";
