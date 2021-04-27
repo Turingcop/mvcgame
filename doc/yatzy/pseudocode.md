@@ -1,17 +1,18 @@
-INITIATE game
+START game
 
-IF times rolled < 3 THEN
+WHILE round < 6
+    WHILE times rolled < 3
+        except dice to keep
+        roll dicehand
+        increment times rolled
+    ENDWHILE
 
-except dice to keep
-roll dicehand
-increment times rolled
+    calculate round score
+    print round score
+    increase round
+ENDWHILE
 
-ELSE
-calculate round score
-print round score
-increase round
-
-IF round > 6 THEN
 calculate final score
 print final score
-prepare reset of game
+
+FINISH game
