@@ -74,7 +74,7 @@ class Yatzy
         $this->rolls++;
         $this->playerhand->roll();
 
-        if ($this-> rolls == 3) {
+        if ($this->rolls == 3) {
             foreach ($this->playerhand->getLastRoll() as $die) {
                 if ($die == $this->round) {
                     $this->scoreboard[$this->round]++;
