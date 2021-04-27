@@ -1,11 +1,5 @@
 phpcpd 6.0.3 by Sebastian Bergmann.
 
-Found 1 clones with 21 duplicated lines in 2 files:
+No clones found.
 
-  - /home/turingcop/dbwebb-kurser/mvc/me/game/src/Dice/Game-copy.php:86-107 (21 lines)
-    /home/turingcop/dbwebb-kurser/mvc/me/game/src/Dice/Game.php:87-108
-
-1.86% duplicated lines out of 1129 total lines of code.
-Average size of duplication is 21 lines, largest clone has 21 of lines
-
-Time: 00:00.004, Memory: 2.00 MB
+Time: 00:00.007, Memory: 2.00 MB

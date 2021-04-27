@@ -36,14 +36,14 @@ class DiceHand
     {
         $len = count($this->diceArr);
         $res = [];
-        $sum = 0;
         for ($i = 0; $i < $len; $i++) {
             $res[$i] = $this->diceArr[$i]->getLastRoll();
         }
         return $res;
     }
 
-    public function allSix() {
+    public function allSix()
+    {
         foreach ($this->diceArr as $die) {
             $die->setSix();
         }
@@ -64,22 +64,26 @@ class DiceHand
         return $this->sum;
     }
 
-    public function checkDice($disable = null) {
+    public function checkDice($disable = null)
+    {
         $res = $this->getLastGraphic();
-        $i = 0;
+        $die = 0;
         $checkbox = [];
         foreach ($res as $val) {
-            $checkbox[] = "<input type='checkbox' {$disable} name='dice[]' value={$i} id='{$i}'/><label for='{$i}'>{$val}</label>";
-            $i++;
+            $checkbox[] = "<input type='checkbox' {$disable} name='dice[]' value={$die} id='{$die}'/><label for='{$die}'>{$val}</label>";
+            $die++;
         }
         return $checkbox;
     }
 
-    public function saveDice($die) {
+
+    public function saveDice($die)
+    {
         $this->saveDice[] = $die;
     }
 
-    public function resetSave() {
+    public function resetSave()
+    {
         $this->saveDice = [];
     }
 }

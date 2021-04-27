@@ -6,14 +6,13 @@ namespace siev20\Controller;
 
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Psr\Http\Message\ResponseInterface;
+use siev20\Dice\DiceHand;
+use siev20\Dice\Game;
 
 use function Mos\Functions\{renderView,
     url,
     destroySession
 };
-
-use siev20\Dice\DiceHand;
-use siev20\Dice\Game;
 
 /**
  * Controller for the dicegame route.

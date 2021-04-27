@@ -46,4 +46,5 @@ $router->addGroup("/dice", function (RouteCollector $router) {
 $router->addGroup("/yatzy", function (RouteCollector $router) {
     $router->addRoute("GET", "", ["\siev20\Controller\YatzyController", "start"]);
     $router->addRoute("POST", "", ["\siev20\Controller\YatzyController", "play"]);
+    $router->addRoute("POST", "/restart", ["\siev20\Controller\YatzyController", "reset"]);
 });

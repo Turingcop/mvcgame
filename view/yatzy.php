@@ -12,24 +12,19 @@ declare(strict_types=1);
 // $header = "Yatzy";
 // $title = "Yatzy";
 $message = $message ?? null;
-$hand = $hand ?? null;
-// $playform = $playform ?? null;
-// $nextform = $nextform ?? null;
-// $result = $result ?? null;
-// $resetform = $resetform ?? null;
-$playerroll = $playerroll ?? null;
-$playerroll1 = $playerroll1 ?? null;
+// $hand = $hand ?? null;
+// $playerroll = $playerroll ?? null;
+// $playerroll1 = $playerroll1 ?? null;
 $checkbox = $checkbox ?? null;
 $action = $action ?? null;
 $playlabel = $playlabel ?? null;
 $present = $present ?? null;
+$score = $score ?? null;
+// $method = $method ?? "GET";
 
 ?>
 <div class="yatzy">
 <h1><?= $header ?></h1>
-
-<!-- <p class="dice"><?= $playerroll ?></p>
-<p class="dice1"><?= $playerroll1 ?></p> -->
 <div>
 
 <form method="POST" action='<?= $action ?>' class="dicecheck">
@@ -37,27 +32,45 @@ $present = $present ?? null;
     <?= $checkbox ?>
     <br>
     <br>
-    <input type="submit" value=<?= $playlabel ?>>
+    <input type="submit" value='<?= $playlabel ?>'>
 </form>
 </div>
 
-
+<table style="width:100%">
+  <tr>
+    <th colspan="2">Poäng</th>
+  </tr>
+<tr>
+    <td>Ettor</td>
+    <td><?= $score[1] * 1 ?></td>
+</tr>
+<tr>
+    <td>Tvåor</td>
+    <td><?= $score[2] * 2 ?></td>
+</tr>
+<tr>
+    <td>Treor</td>
+    <td><?= $score[3] * 3 ?></td>
+</tr>
+<tr>
+    <td>Fyror</td>
+    <td><?= $score[4] * 4 ?></td>
+</tr>
+<tr>
+    <td>Femor</td>
+    <td><?= $score[5] * 5 ?></td>
+</tr>
+<tr>
+    <td>Sexor</td>
+    <td><?= $score[6] * 6 ?></td>
+</tr>
+<tr>
+    <td>Summa</td>
+    <td><?= $score["summa"]?></td>
+</tr>
+<tr>
+    <td>Bonus</td>
+    <td><?= $score["bonus"]?></td>
+</tr>
+</table> 
 </div>
-
-Slag
-<br>
-<?= $_SESSION["game"]->rolls; ?>
-<br>
-Poäng
-<br>
-<?= $_SESSION["game"]->scoreboard(); ?>
-<br>
-Runda
-<br>
-<?= $_SESSION["game"]->round ?>
-<br>
-Senaste slag
-<br>
-<?= implode(", ", $hand->getLastRoll()); ?>
-<br>
-<?= $_SESSION["game"]->calcSum(); ?>

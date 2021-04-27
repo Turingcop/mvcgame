@@ -16,7 +16,8 @@ footer {
     text-align: center;
 }
 
-.game21 {
+.game21,
+.yatzy {
     min-height: 60vh;
 }
 
@@ -25,18 +26,20 @@ footer {
     padding: 0.5rem;
 }
 
+.yatzy input[type="submit"] {
+    min-width: 120px;
+    padding: 0.5rem;
+    /* margin-left: 1rem; */
+}
+
 .playbtn form {
     display: inline;
     margin-right: 1rem;
 }
 
-/* .dice {
-    font-size: 80px;
-} */
-
 .dicecheck label {
     font-size: 80px;
-    margin-left: 1rem;
+    margin-right: 1rem;
     margin-bottom: 1rem;
 }
 
@@ -48,7 +51,3 @@ input[type="checkbox"]:checked + label {
 .dicecheck input[type="checkbox"] {
     display: none;
 }
-/* 
-label {
-    color: blue;
-} */
