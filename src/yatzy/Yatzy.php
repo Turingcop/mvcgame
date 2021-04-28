@@ -29,7 +29,6 @@ class Yatzy
            ];
 
         $this->playerhand = new DiceHand(5);
-        $data["hand"] = $this->playerhand;
         $this->scoreboard = [
             1 => 0,
             2 => 0,
@@ -61,7 +60,6 @@ class Yatzy
             "playlabel" => "Kasta",
            ];
 
-        $data["hand"] = $this->playerhand;
         $this->playerhand->resetSave();
         $this->disable = null;
 
