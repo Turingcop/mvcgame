@@ -4,21 +4,9 @@ declare(strict_types=1);
 
 namespace siev20\Dice;
 
-// use function Mos\Functions\{
-//     destroySession,
-//     redirectTo,
-//     renderView,
-//     renderTwigView,
-//     sendResponse,
-//     url
-// };
-
-/**
- * Class Dice.
- */
 class Dice
 {
-    private ?int $roll = null;
+    protected ?int $roll = null;
     private int $faces;
 
     public function __construct(int $faces = 6)

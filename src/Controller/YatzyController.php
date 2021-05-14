@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace siev20\Controller;
 
-use Nyholm\Psr7\Factory\Psr17Factory;
-use Psr\Http\Message\ResponseInterface;
-use siev20\Dice\DiceHand;
-use siev20\yatzy\Yatzy;
+use siev20\yatzy\{YatzyHand,
+    Yatzy
+};
+// use siev20\Dice\DiceGraphic;
 
 use function Mos\Functions\{renderView,
     url,
@@ -21,8 +21,9 @@ class YatzyController extends ControllerBase
 {
     public function start()
     {
-        $_SESSION["game"] = new Yatzy();
-        $body = $_SESSION["game"]->setUp();
+        $game = new Yatzy("siev20\yatzy\YatzyHand", "siev20\Dice\DiceGraphic", 5);
+        $_SESSION["game"] = $game;
+        $body = $game->presentGame();
         return $this->response($body);
     }
 

@@ -1,0 +1,29 @@
+PHPUnit 9.5.4 by Sebastian Bergmann and contributors.
+
+........................................................          56 / 56 (100%)array(8) {
+  [1]=>
+  int(3)
+  [2]=>
+  int(3)
+  [3]=>
+  int(3)
+  [4]=>
+  int(3)
+  [5]=>
+  int(3)
+  [6]=>
+  int(3)
+  ["summa"]=>
+  int(113)
+  ["bonus"]=>
+  int(50)
+}
+
+
+Time: 00:02.039, Memory: 24.00 MB
+
+OK (56 tests, 72 assertions)
+
+Generating code coverage report in Clover XML format ... done [00:00.094]
+
+Generating code coverage report in HTML format ... done [00:00.125]

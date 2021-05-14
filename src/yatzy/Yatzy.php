@@ -13,22 +13,16 @@ use function Mos\Functions\{
 
 class Yatzy
 {
+    use YatzyCheat;
     private $playerhand;
     private array $scoreboard;
     private int $round = 1;
     private int $rolls = 0;
     private ?string $disable = null;
 
-    public function setUp()
+    public function __construct($dicehand, $dice, $amount)
     {
-        $data = [
-            "header" => "Yatzy",
-            "title" => "Yatzy",
-            "action" => url("/yatzy"),
-            "playlabel" => "Börja",
-           ];
-
-        $this->playerhand = new DiceHand(5);
+        $this->playerhand = new $dicehand($dice, $amount);
         $this->scoreboard = [
             1 => 0,
             2 => 0,
@@ -39,8 +33,20 @@ class Yatzy
             "summa" => 0,
             "bonus" => 0
         ];
+    }
 
-        $present = $this->playerhand->allSix();
+    public function presentGame()
+    {
+        $this->presentationHand = new YatzyHand("siev20\Dice\DiceCheat", 5);
+        $data = [
+            "header" => "Yatzy",
+            "title" => "Yatzy",
+            "action" => url("/yatzy"),
+            "playlabel" => "Börja",
+           ];
+
+        $this->presentationHand->roll();
+        $present = $this->presentationHand->getLastGraphic();
         $data["present"] = "";
         foreach ($present as $die) {
             $data["present"] .= "<label>{$die}</label> ";
@@ -73,7 +79,7 @@ class Yatzy
         $this->playerhand->roll();
 
         if ($this->rolls == 3) {
-            foreach ($this->playerhand->getLastRoll() as $die) {
+            foreach ($this->playerhand->getLastRoll()[0] as $die) {
                 if ($die == $this->round) {
                     $this->scoreboard[$this->round]++;
                 }
@@ -96,12 +102,7 @@ class Yatzy
         return $body;
     }
 
-    public function scoreboard()
-    {
-        return implode(", ", $this->scoreboard);
-    }
-
-    public function calcScore(): int
+    public function calcScore()
     {
         $score = 0;
         for ($i = 1; $i <= 6; $i++) {
@@ -112,6 +113,6 @@ class Yatzy
             $this->scoreboard["bonus"] = 50;
         }
         $this->scoreboard["summa"] = $score;
-        return $score;
+        return ["score" => $score, "scoreboard" => $this->scoreboard];
     }
 }

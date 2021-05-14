@@ -29,7 +29,12 @@ $resetform = $resetform ?? null;
         <?= $throwlabel ?>
     </p>
     <p>
-        <?= $hand->getThrows(); ?>
+        <?php
+        $len = count($hand->rolls);
+        for ($i = 0; $i < $len; $i++) {
+            echo $hand->rolls[$i] . "<br>";
+        }
+         ?>
     </p>
     <p>
         Summa

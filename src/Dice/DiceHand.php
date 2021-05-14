@@ -4,33 +4,30 @@ declare(strict_types=1);
 
 namespace siev20\Dice;
 
-/**
- * Class Dice.
- */
 class DiceHand
 {
-    private array $diceArr;
-    private int $sum;
-    private $throws = [];
+    protected array $diceArr;
+    protected int $sum;
+    public $rolls = [];
 
-    public function __construct($dices = 3)
+    public function __construct($dice, $amount)
     {
-        for ($i = 0; $i < $dices; $i++) {
-            $this->diceArr[$i] = new Dice();
+        for ($i = 0; $i < $amount; $i++) {
+            $this->diceArr[$i] = new $dice;
         }
         $this->sum = 0;
     }
 
-    public function roll(): void
+    public function roll()
     {
         $len = count($this->diceArr);
         for ($i = 0; $i < $len; $i++) {
             $this->sum += $this->diceArr[$i]->roll();
         }
-        $this->getLastRoll();
+        return $this->diceArr;
     }
 
-    public function getLastRoll(): string
+    public function getLastRoll()
     {
         $len = count($this->diceArr);
         $res = [];
@@ -39,24 +36,17 @@ class DiceHand
             $res[$i] = $this->diceArr[$i]->getLastRoll();
             $sum += $this->diceArr[$i]->getLastRoll();
         }
-        if ($len > 1) {
-            $this->throws[] = implode(", ", $res) . " = " . $sum;
-            return implode(", ", $res) . " = " . $sum;
-        }
-        $this->throws[] = implode($res);
-        return implode(", ", $res) . " = " . $sum;
-    }
-
-    public function getThrows()
-    {
-        $len = count($this->throws);
-        for ($i = 0; $i < $len; $i++) {
-            echo $this->throws[$i] . "<br>";
-        }
+        $this->rolls[] = implode(", ", $res) . " = " . $sum;
+        return [$res, $sum];
     }
 
     public function getSum(): int
     {
         return $this->sum;
     }
+
+    public function setSum($num) {
+        $this->sum = $num;
+    }
+
 }

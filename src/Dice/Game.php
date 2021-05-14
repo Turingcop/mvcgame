@@ -17,7 +17,7 @@ use function Mos\Functions\{
 class Game
 {
     private $playerhand;
-    private $computerhand;
+    public $computerhand;
 
     public function setUp()
     {
@@ -63,11 +63,11 @@ class Game
          "header" => "Game21",
          "title" => "Game21",
          "message" => "Tryck på knappen för att göra ditt första kast.",
-         "dices" => $_POST["dices"] ?? null,
+         "dices" => $_POST["dices"] ?? 2,
         ];
 
-        $this->playerhand = new DiceHand($data["dices"]);
-        $this->computerhand = new DiceHand($data["dices"]);
+        $this->playerhand = new DiceHand("siev20\Dice\Dice", $data["dices"]);
+        $this->computerhand = new DiceHand("siev20\Dice\Dice", $data["dices"]);
         $data["throw"] = url("/dice/player");
         $data["playform"] = "<form method='post' action={$data['throw']}><input type='submit' value='Kasta'></form>";
 
@@ -75,7 +75,7 @@ class Game
         return $body;
     }
 
-    public function roll()
+    public function roll($cheat = null)
     {
         $data = [
             "header" => "Game21",
@@ -93,6 +93,11 @@ class Game
         $data["nextform"] = "<form method='post' action={$data['stop']}><input type='submit' value='Stanna'></form>";
 
         $this->playerhand->roll();
+        $this->playerhand->getLastRoll();
+        
+        if ($cheat) {
+            $this->playerhand->setSum($cheat);
+        }
 
         if ($this->playerhand->getSum() > 21) {
             $data["result"] = "Du förlorade!";
@@ -108,7 +113,7 @@ class Game
         return $body;
     }
 
-    public function computerroll()
+    public function computerroll($cheat = null)
     {
         $data = [
             "header" => "Game21",
@@ -121,6 +126,11 @@ class Game
 
         while ($this->computerhand->getSum() < 21) {
             $this->computerhand->roll();
+            $this->computerhand->getLastRoll();
+        }
+
+        if ($cheat) {
+            $this->computerhand->setSum($cheat);
         }
 
         if ($this->computerhand->getSum() == 21) {

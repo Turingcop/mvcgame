@@ -4,15 +4,10 @@ declare(strict_types=1);
 
 namespace siev20\Dice;
 
-use siev20\Dice\Dice;
-
-/**
- * Class Dice.
- */
 class DiceGraphic extends Dice
 {
-    private const FACES = 6;
-    private array $graphic = [
+    protected const FACES = 6;
+    protected array $graphic = [
         1 => "⚀",
         2 => "⚁",
         3 => "⚂",
@@ -25,8 +20,6 @@ class DiceGraphic extends Dice
     {
         parent::__construct(self::FACES);
     }
-
-    // private ?int $roll = null;
 
     public function graphic(): string
     {

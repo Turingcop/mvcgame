@@ -48,7 +48,7 @@ $score = $score ?? null;
     <td><?= $score[4] * 4 ?></td>
 </tr>
 <tr>
-    <td>Femor</td>
+    <td>Femmor</td>
     <td><?= $score[5] * 5 ?></td>
 </tr>
 <tr>

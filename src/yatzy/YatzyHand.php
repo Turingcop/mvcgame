@@ -3,26 +3,14 @@
 declare(strict_types=1);
 
 namespace siev20\yatzy;
+use siev20\Dice\DiceHand;
 
-/**
- * Class Dice.
- */
-class DiceHand
+class YatzyHand extends DiceHand
 {
-    private array $diceArr;
-    private int $sum;
-    // public $rolls = 0;
+
     private $saveDice = [];
 
-    public function __construct($dices = 3)
-    {
-        for ($i = 0; $i < $dices; $i++) {
-            $this->diceArr[$i] = new DiceGraphic();
-        }
-        $this->sum = 0;
-    }
-
-    public function roll(): void
+    public function roll()
     {
         $len = count($this->diceArr);
         for ($i = 0; $i < $len; $i++) {
@@ -30,24 +18,7 @@ class DiceHand
                 $this->diceArr[$i]->roll();
             }
         }
-    }
-
-    public function getLastRoll()
-    {
-        $len = count($this->diceArr);
-        $res = [];
-        for ($i = 0; $i < $len; $i++) {
-            $res[$i] = $this->diceArr[$i]->getLastRoll();
-        }
-        return $res;
-    }
-
-    public function allSix()
-    {
-        foreach ($this->diceArr as $die) {
-            $die->setSix();
-        }
-        return $this->getLastGraphic();
+        return $this->diceArr;
     }
 
     public function getLastGraphic(): array
@@ -57,11 +28,6 @@ class DiceHand
             $res[] = $dice->graphic();
         }
         return $res;
-    }
-
-    public function getSum(): int
-    {
-        return $this->sum;
     }
 
     public function checkDice($disable = null)
@@ -76,7 +42,6 @@ class DiceHand
         return $checkbox;
     }
 
-
     public function saveDice($die)
     {
         $this->saveDice[] = $die;
@@ -85,5 +50,10 @@ class DiceHand
     public function resetSave()
     {
         $this->saveDice = [];
+    }
+
+    public function returnSaveArr()
+    {
+        return $this->saveDice;
     }
 }

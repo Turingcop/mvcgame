@@ -17,9 +17,9 @@ $router->addRoute("GET", "/test", function () {
     return "Testing response";
 });
 
-$router->addRoute("GET", "/", "\Mos\Controller\Index");
-$router->addRoute("GET", "/debug", "\Mos\Controller\Debug");
-$router->addRoute("GET", "/twig", "\Mos\Controller\TwigView");
+$router->addRoute("GET", "/", "\siev20\Controller\Index");
+$router->addRoute("GET", "/debug", "\siev20\Controller\Debug");
+$router->addRoute("GET", "/twig", "\siev20\Controller\TwigView");
 
 $router->addGroup("/session", function (RouteCollector $router) {
     $router->addRoute("GET", "", ["\siev20\Controller\Session", "index"]);
@@ -27,12 +27,12 @@ $router->addGroup("/session", function (RouteCollector $router) {
 });
 
 $router->addGroup("/some", function (RouteCollector $router) {
-    $router->addRoute("GET", "/where", ["\Mos\Controller\Sample", "where"]);
+    $router->addRoute("GET", "/where", ["\siev20\Controller\Sample", "where"]);
 });
 
 $router->addGroup("/form", function (RouteCollector $router) {
-    $router->addRoute("GET", "/view", ["\Mos\Controller\Form", "view"]);
-    $router->addRoute("POST", "/process", ["\Mos\Controller\Form", "process"]);
+    $router->addRoute("GET", "/view", ["\siev20\Controller\Form", "view"]);
+    $router->addRoute("POST", "/process", ["\siev20\Controller\Form", "process"]);
 });
 
 $router->addGroup("/dice", function (RouteCollector $router) {

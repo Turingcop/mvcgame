@@ -28,7 +28,7 @@ class GameControl extends ControllerBase
 
     public function play()
     {
-        $body = $_SESSION["game"]->playGame();
+        $body = $_SESSION["game"]->playGame("siev20\Dice\Dice");
         return $this->response($body);
     }
 
@@ -46,7 +46,8 @@ class GameControl extends ControllerBase
 
     public function reset()
     {
-        destroySession();
+        $_SESSION["playerscore"] = 0;
+        $_SESSION["computerscore"] = 0;
         return $this->redirect(url("/dice"));
     }
 }
