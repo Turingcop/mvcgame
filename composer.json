@@ -1,4 +1,6 @@
 {
+    "name": "siev20/mvc",
+    "description": "Course repo for mvc at bth",
     "autoload": {
         "psr-4": {
             "Mos\\": "src/",

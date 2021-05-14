@@ -31,9 +31,9 @@ class GameTest extends TestCase
     public function testPlayerWin()
     {
         $game = new Game;
-        $res = $game->playGame();
-        $res = $game->roll(21);
-        $res1 = $game->computerRoll(22);
+        $game->playGame();
+        $game->roll(21);
+        $game->computerRoll(22);
         $exp = $_SESSION["playerscore"] == 1 && $_SESSION["computerscore"] == 0;
         $this->assertTrue($exp);
     }
@@ -41,9 +41,9 @@ class GameTest extends TestCase
     public function testComputerWin()
     {
         $game = new Game;
-        $res = $game->playGame();
-        $res = $game->roll(20);
-        $res1 = $game->computerRoll(21);
+        $game->playGame();
+        $game->roll(20);
+        $game->computerRoll(21);
         $exp = $_SESSION["computerscore"] == 1;
         $this->assertTrue($exp);
     }
@@ -51,8 +51,8 @@ class GameTest extends TestCase
     public function testPlayerOver21()
     {
         $game = new Game;
-        $res = $game->playGame();
-        $res = $game->roll(22);
+        $game->playGame();
+        $game->roll(22);
         $exp = $_SESSION["computerscore"] == 2;
         $this->assertTrue($exp);
     }
