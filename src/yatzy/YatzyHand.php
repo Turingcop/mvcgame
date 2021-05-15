@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace siev20\yatzy;
+
 use siev20\Dice\DiceHand;
 
 class YatzyHand extends DiceHand

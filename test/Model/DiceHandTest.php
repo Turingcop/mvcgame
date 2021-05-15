@@ -30,7 +30,7 @@ class DiceHandTest extends TestCase
         $controller->roll();
         $res = $controller->getLastRoll();
         $exp = $res[0][0] + $res[0][1] == $res[1];
-        
+
         $this->assertTrue($exp);
     }
 
@@ -40,13 +40,13 @@ class DiceHandTest extends TestCase
         $controller->roll();
         $res = $controller->getSum();
         $exp = $res <= 6 && $res >= 1;
-        $this->assertTrue($exp); 
+        $this->assertTrue($exp);
 
         $controller = new DiceHand("siev20\Dice\Dice", 3);
         $controller->roll();
         $res = $controller->getSum();
         $exp = $res <= 18 && $res >= 3;
-        $this->assertTrue($exp); 
+        $this->assertTrue($exp);
     }
 
     public function testSetSum()

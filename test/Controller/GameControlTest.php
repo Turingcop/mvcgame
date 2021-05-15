@@ -58,7 +58,7 @@ class GameControllerTest extends TestCase
 
         $res = $_SESSION["computerscore"] > 0 || $_SESSION["playerscore"] > 0;
         $this->assertTrue($res);
-        
+
         $controller->reset();
         $res = $_SESSION["computerscore"] == 0 && $_SESSION["playerscore"] == 0;
         $this->assertTrue($res);

@@ -34,7 +34,7 @@ $resetform = $resetform ?? null;
         for ($i = 0; $i < $len; $i++) {
             echo $hand->rolls[$i] . "<br>";
         }
-         ?>
+        ?>
     </p>
     <p>
         Summa

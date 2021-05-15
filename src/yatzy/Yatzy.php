@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace siev20\yatzy;
 
 use function Mos\Functions\{
-    redirectTo,
     renderView,
-    sendResponse,
     url
 };
 
 class Yatzy
 {
     use YatzyCheat;
+
     private $playerhand;
+    private $presentationHand;
     private array $scoreboard;
     private int $round = 1;
     private int $rolls = 0;

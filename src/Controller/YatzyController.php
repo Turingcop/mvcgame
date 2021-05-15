@@ -7,7 +7,6 @@ namespace siev20\Controller;
 use siev20\yatzy\{YatzyHand,
     Yatzy
 };
-// use siev20\Dice\DiceGraphic;
 
 use function Mos\Functions\{renderView,
     url,

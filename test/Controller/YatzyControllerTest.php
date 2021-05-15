@@ -9,7 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 
 class YatzyControllerTest extends TestCase
 {
-      public function testStart()
+    public function testStart()
     {
         $controller = new YatzyController();
         $controller->start();

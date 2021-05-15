@@ -13,7 +13,7 @@ class DiceHand
     public function __construct($dice, $amount)
     {
         for ($i = 0; $i < $amount; $i++) {
-            $this->diceArr[$i] = new $dice;
+            $this->diceArr[$i] = new $dice();
         }
         $this->sum = 0;
     }
@@ -45,8 +45,8 @@ class DiceHand
         return $this->sum;
     }
 
-    public function setSum($num) {
+    public function setSum($num)
+    {
         $this->sum = $num;
     }
-
 }

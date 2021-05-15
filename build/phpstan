@@ -1,22 +1,3 @@
- ------ -------------------------------------------------------------------- 
-  Line   src/Dice/Game.php                                                   
- ------ -------------------------------------------------------------------- 
-  8      Used function Mos\Functions\redirectTo not found.                   
-         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols  
-  10     Used function Mos\Functions\sendResponse not found.                 
-         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols  
- ------ -------------------------------------------------------------------- 
 
- ------ ---------------------------------------------------------------------------------------- 
-  Line   src/yatzy/Yatzy.php                                                                     
- ------ ---------------------------------------------------------------------------------------- 
-  8      Used function Mos\Functions\redirectTo not found.                                       
-         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
-  10     Used function Mos\Functions\sendResponse not found.                                     
-         💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                      
-  16     Trait siev20\Yatzy\YatzyCheat referenced with incorrect case: siev20\yatzy\YatzyCheat.  
-  40     Access to an undefined property siev20\yatzy\Yatzy::$presentationHand.                  
- ------ ---------------------------------------------------------------------------------------- 
-
- [ERROR] Found 6 errors                                                                                                 
+ [OK] No errors                                                                                                         
 

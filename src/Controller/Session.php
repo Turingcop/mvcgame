@@ -3,10 +3,7 @@
 declare(strict_types=1);
 
 namespace siev20\Controller;
-// namespace siev20\Controller;
 
-// use Nyholm\Psr7\Factory\Psr17Factory;
-// use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 
 use function Mos\Functions\{

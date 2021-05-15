@@ -10,27 +10,27 @@ class GameTest extends TestCase
 {
     public function testCreateDiceGame()
     {
-        $game = new Game;
+        $game = new Game();
         $this->assertInstanceOf(Game::class, $game);
     }
 
     public function testSetup()
     {
-        $game = new Game;
+        $game = new Game();
         $res = $game->setUp();
         $this->assertIsString($res);
     }
 
     public function testPlay()
     {
-        $game = new Game;
+        $game = new Game();
         $res = $game->playGame();
         $this->assertIsString($res);
     }
 
     public function testPlayerWin()
     {
-        $game = new Game;
+        $game = new Game();
         $game->playGame();
         $game->roll(21);
         $game->computerRoll(22);
@@ -40,7 +40,7 @@ class GameTest extends TestCase
 
     public function testComputerWin()
     {
-        $game = new Game;
+        $game = new Game();
         $game->playGame();
         $game->roll(20);
         $game->computerRoll(21);
@@ -50,11 +50,10 @@ class GameTest extends TestCase
 
     public function testPlayerOver21()
     {
-        $game = new Game;
+        $game = new Game();
         $game->playGame();
         $game->roll(22);
         $exp = $_SESSION["computerscore"] == 2;
         $this->assertTrue($exp);
     }
-
 }

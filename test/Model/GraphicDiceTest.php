@@ -10,13 +10,13 @@ class GraphicDiceTest extends TestCase
 {
     public function testCreateGraphicDice()
     {
-        $controller = new DiceGraphic;
+        $controller = new DiceGraphic();
         $this->assertInstanceOf("siev20\Dice\DiceGraphic", $controller);
     }
 
     public function testReturnGraphic()
     {
-        $controller = new DiceGraphic;
+        $controller = new DiceGraphic();
         $controller->roll();
         $res = $controller->graphic();
         $exp = $res == "⚀" ||
